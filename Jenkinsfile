@@ -3,14 +3,14 @@ pipeline {
     agent any    
     
     environment {
-        MSR_FQDN_PORT='<registry dynamic DNS>:4443'
+        MSR_FQDN_PORT='gvcarhwimfeyzi6tk-fdf3jt6yucz56q6rb.labs.strigo.io:4443'
     }
 
     stages {
         stage('Build') {
             environment {
                 MSR_ACCESS_KEY = credentials('jenkins-msr-access-token')
-        MAJORMINOR = '0.0'
+                MAJORMINOR = '0.0'
             }
             steps {
             sh 'docker --context=buildserver image build -t \
